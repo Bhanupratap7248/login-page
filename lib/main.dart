@@ -35,19 +35,35 @@ class MyApp extends StatelessWidget {
                 'Welcome Back!',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 60),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Username',
-                  border: OutlineInputBorder(),
-                ),
+              SizedBox(height: 40),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Username',
+
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(height: 20),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  border: OutlineInputBorder(),
+
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'password',
+
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                  ),
                 ),
               ),
               SizedBox(height: 20),
