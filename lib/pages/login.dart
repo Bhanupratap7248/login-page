@@ -8,6 +8,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  bool _isPasswordVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,6 +33,7 @@ class _LoginState extends State<Login> {
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 'Welcome Back!',
@@ -58,12 +61,24 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: const EdgeInsets.all(20),
                 child: TextField(
-                  obscureText: true,
+                  obscureText: !_isPasswordVisible,
                   decoration: InputDecoration(
                     labelText: 'password',
-
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(16),
+                    ),
+                    prefixIcon: Icon(Icons.lock),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _isPasswordVisible
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _isPasswordVisible = !_isPasswordVisible;
+                        });
+                      },
                     ),
                   ),
                 ),
@@ -71,7 +86,7 @@ class _LoginState extends State<Login> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Handle login logic here
+                  Navigator.pushNamed(context, '/home');
                 },
                 child: Text('Login'),
               ),
