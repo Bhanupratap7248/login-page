@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:f/pages/login.dart';
-//import 'package:f/pages/home.dart';
+import 'package:f/pages/home.dart';
+import 'package:f/pages/signup.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,16 +15,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'login',
+      title: 'home',
       theme: ThemeData(
         colorScheme: .fromSeed(
           seedColor: const Color.fromARGB(255, 74, 9, 187),
         ),
       ),
-      initialRoute: '/login',
+      initialRoute: '/otp',
       routes: {
         '/login': (context) => Login(),
-        // '/home': (context) => Home(),
+        '/home': (context) => Home(),
+        '/signup': (context) => Signup(),
       },
     );
   }
